@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom"
 function LogIn ({setToken}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("");
     const navigate = useNavigate()
 
     async function handleSubmit(event) {
         event.preventDefault();
+        setError("");
         try{
             const response = await fetch(`https://localhost:3000/users/login`,
                 {
@@ -22,10 +24,17 @@ function LogIn ({setToken}) {
                 }
             )
             const result = await response.json()
+
+            if (!response.ok) {
+                setError(result.message || "Login failed. Please try again.");
+                return;
+            }
+
             setToken(result.token)
             navigate("/account")
         }catch(error){
             console.log(error)
+            setError("An unexpected error occurred. Please try again.");
         }
     }
 
@@ -47,6 +56,7 @@ function LogIn ({setToken}) {
                 value={password} minLength={6} required/>
             </label>
             <button>Log In</button>
+            {error && <p className="error">{error}</p>}
         </form>
         </>
     )
