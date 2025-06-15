@@ -1,5 +1,8 @@
 import { useState } from "react";
-import Home from "./components/Home";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home.jsx";
+import LogIn from "./components/LogIn.jsx";
+import "./index.css";
 
 function App() {
 	const [token, setToken] = useState();
@@ -12,12 +15,12 @@ function App() {
 
 	return (
 		<>
-			<Home />
 			<nav style={{ display: "flex", justifyContent: "space-between" }}>
 				<Link to="/">Home</Link>
 				{navBar}
 			</nav>
 			<Routes>
+        <Route path="/" element={<Home/>}/>
 				<Route path="/login" element={<LogIn setToken={setToken} />} />
 			</Routes>
 		</>
