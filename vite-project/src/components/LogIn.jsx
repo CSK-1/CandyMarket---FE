@@ -11,7 +11,7 @@ function LogIn ({setToken}) {
         event.preventDefault();
         setError("");
         try{
-            const response = await fetch(`https://localhost:3000/users/login`,
+            const response = await fetch(`https://localhost:3000/api/users/login`,
                 {
                     method: "POST",
                     headers:{
