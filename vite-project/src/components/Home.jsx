@@ -1,41 +1,50 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [candy, setCandy] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+	const [candy, setCandy] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 
-  useEffect(() => {
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const response = await fetch(`http://localhost:3000/api/products`);
+				const data = await response.json();
+				setCandy(data);
+			} catch (e) {
+				setError(error.message);
+			} finally {
+				setLoading(false);
+			}
+		};
 
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/all_products`)
-      const data = await response.json()
-      console.log(data)
-      setCandy(data)
-    } catch (e) {
-      setError(error.message)
-    } finally {
-      setLoading(false)
-    }
-  }
+		fetchProducts();
+	}, []);
 
-  fetchProducts()
-  }, [])
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
-  if (loading) {
-    return <div>Loading...</div>
-  }
+	if (error) {
+		return <div>Error: {error}</div>;
+	}
 
-  if (error) {
-    <div>Error: {error}</div>
-  }
+	return (
+		<>
+			<h1>Home Sweet Home 🍭</h1>
+			<div className="candy-list">
+				{candy.map((item) => (
+					<div key={item.id || item.title}>
+						<h2>{item.title}</h2>
+						<p>{item.description}</p>
+						<h3>${item.price}</h3>
+						<Link to={`/products/${item.id}`}>Get Details</Link>
+					</div>
+				))}
+			</div>
+		</>
+	);
+};
 
-  return (
-    <>
-      <h1>Home Sweet Home 🍭</h1>
-    </>
-  )
-}
-
-export default Home
+export default Home;
