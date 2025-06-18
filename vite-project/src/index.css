@@ -1,0 +1,17 @@
+.error {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+h1 {
+    background-color: white;
+    color: black;
+}
+
+.candy-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+	padding: 1rem;
+}
