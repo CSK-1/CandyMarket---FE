@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import LogIn from "./components/LogIn.jsx";
+import Register from "./components/Register.jsx";
 import "./index.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 			<Routes>
         <Route path="/" element={<Home/>}/>
 				<Route path="/login" element={<LogIn setToken={setToken} />} />
+				<Route path="/register" element={<Register setToken={setToken} />} />
 			</Routes>
 		</>
 	);
