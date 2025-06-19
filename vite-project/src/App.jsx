@@ -16,7 +16,7 @@ function App() {
 
 	return (
 		<>
-			<nav style={{ display: "flex", justifyContent: "space-between" }}>
+			<nav style={{ display: "flex", justifyContent: "space-between", margin: "10px" }}>
 				<Link to="/">Home</Link>
 				{navBar}
 			</nav>
