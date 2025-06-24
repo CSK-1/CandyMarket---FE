@@ -7,7 +7,7 @@ import "./index.css";
 import ProductDetails from "./components/ProductDetails.jsx";
 
 function App() {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
 
   let navBar = <Link to="/login">Log In</Link>;
 
@@ -31,7 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn setToken={setToken} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
-		<Route path="/products/:id" element={<ProductDetails />} />
+		<Route path="/products/:id" element={<ProductDetails token={token} />} />
       </Routes>
     </>
   );
