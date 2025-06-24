@@ -30,6 +30,7 @@ function LogIn({ setToken }) {
 			}
 
 			setToken(result.token);
+			localStorage.setItem("token", result.token);
 			navigate("/account");
 		} catch (error) {
 			console.log(error);
