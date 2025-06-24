@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import candyImage from "../assets/CandyImage.png";
 
 const Home = () => {
 	const [candy, setCandy] = useState([]);
@@ -32,11 +33,12 @@ const Home = () => {
 
 	return (
 		<>
-			<h1>Home Sweet Home 🍭</h1>
+			<h1>🍭 Home <span className="sweet-text">Sweet</span> Home 🍭</h1>
 			<div className="candy-list">
 				{candy.map((item) => (
-					<div key={item.id || item.title}>
+					<div key={item.id || item.title} className="candy-card">
 						<h2>{item.title}</h2>
+            <img src={candyImage} alt="Candy image" className="candy-icon"/>
 						<p>{item.description}</p>
 						<h3>${item.price}</h3>
 						<Link to={`/products/${item.id}`}>Get Details</Link>

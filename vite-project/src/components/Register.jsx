@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Register = ({setToken}) => {
+const Register = ({ setToken }) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(null);
 
-	const navigate = useNavigate();   
+	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -28,31 +28,36 @@ const Register = ({setToken}) => {
 			}
 
 			localStorage.setItem("token", data.token);
-             if (setToken) setToken(data.token);
-			navigate("/"); 
+			if (setToken) setToken(data.token);
+			navigate("/");
 		} catch (err) {
 			setError("Something went wrong. Please try again.");
 		}
 	};
 
 	return (
-		<div className="form-container">
-			<h2>Create Account</h2>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="username"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-					required
-				/>
-				<input
-					type="password"
-					placeholder="Password (min 6 characters)"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
+		<div>
+			<form onSubmit={handleSubmit} className="login-form">
+				<h2>Create Account</h2>
+				<label>
+					Username
+					<input
+						type="text"
+						value={username}
+						onChange={(e) => setUsername(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Password
+					<input
+						type="password"
+						placeholder="(min 6 characters)"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
+				</label>
 				{error && <p className="error">{error}</p>}
 				<button type="submit">Register</button>
 			</form>
