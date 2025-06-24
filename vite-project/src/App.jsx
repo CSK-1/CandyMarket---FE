@@ -7,7 +7,7 @@ import "./index.css";
 import ProductDetails from "./components/ProductDetails.jsx";
 
 function App() {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
 
   let navBar = <Link to="/login">Log In</Link>;
 
