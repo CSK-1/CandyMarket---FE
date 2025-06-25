@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Reviews from "./Reviews";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const ProductDetails = () => {
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <h3>${product.price}</h3>
-
+{/* 
       <h4>Reviews:</h4>
       {product.reviews && product.reviews.length > 0 ? (
         <ul>
@@ -41,7 +42,9 @@ const ProductDetails = () => {
         </ul>
       ) : (
         <p>No reviews yet.</p>
-      )}
+      )} */}
+      <Reviews productId={id} />
+
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Register from "./components/Register.jsx";
 import "./index.css";
 import ProductDetails from "./components/ProductDetails.jsx";
 
+
 function App() {
   const [token, setToken] = useState();
 
