@@ -30,6 +30,7 @@ function LogIn({ setToken }) {
 			}
 
 			setToken(result.token);
+			localStorage.setItem("token", result.token);
 			navigate("/account");
 		} catch (error) {
 			console.log(error);
@@ -63,9 +64,14 @@ function LogIn({ setToken }) {
 				<button>Log In</button>
 				{error && <p className="error">{error}</p>}
 			</form>
-			<p style={{ marginTop: "1rem", marginLeft: "2rem" }}>
-				Don't have an account? <Link to="/register">Register here</Link>
-			</p>
+			<div className="register">
+				<p>
+					Don't have an account?{" "}
+					<div className="register-button">
+						<Link to="/register">Register here</Link>
+					</div>
+				</p>
+			</div>
 		</>
 	);
 }
