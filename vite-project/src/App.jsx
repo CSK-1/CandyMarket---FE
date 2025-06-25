@@ -5,6 +5,7 @@ import LogIn from "./components/LogIn.jsx";
 import Register from "./components/Register.jsx";
 import "./index.css";
 import ProductDetails from "./components/ProductDetails.jsx";
+import Account from "./components/Account.jsx";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 					path="/products/:id"
 					element={<ProductDetails token={token} />}
 				/>
+        <Route path="/account" element={<Account token={token} />} />
 			</Routes>
 		</>
 	);
