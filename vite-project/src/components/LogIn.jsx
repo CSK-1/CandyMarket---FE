@@ -66,11 +66,11 @@ function LogIn({ setToken }) {
 			</form>
 			<div className="register">
 				<p>
-					Don't have an account?{" "}
+					Don't have an account?{" "}</p>
 					<div className="register-button">
 						<Link to="/register">Register here</Link>
 					</div>
-				</p>
+				
 			</div>
 		</>
 	);
