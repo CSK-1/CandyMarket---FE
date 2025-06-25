@@ -41,6 +41,7 @@ const ProductDetails = () => {
 
       setRating("");
       setComment("");
+      window.location.reload();
     } catch (err) {
       setError(err.message);
     }
@@ -57,7 +58,6 @@ const ProductDetails = () => {
         <p>{product.description}</p>
         <h3>${product.price}</h3>
 
-        <h4>Reviews:</h4>
         <Reviews productId={id} />
 
         <h4>Write a Review:</h4>
