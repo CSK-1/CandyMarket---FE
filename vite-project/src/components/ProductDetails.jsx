@@ -56,37 +56,35 @@ const ProductDetails = () => {
 		}
 	};
 
-	let reviewForm = <p>Log in to write a review.</p>;
-
-	if (!!token) {
-		reviewForm = (
-			<form onSubmit={handleSubmit} className="review-form">
-				<label>
-					Rating (out of 10)
-					<input
-						name="rating"
-						type="number"
-						min="1"
-						max="10"
-						onChange={(e) => setRating(e.target.value)}
-						value={rating || ""}
-						required
-					/>
-				</label>
-				<label>
-					Comment
-					<input
-						name="comment"
-						onChange={(e) => setComment(e.target.value)}
-						value={comment || ""}
-						required
-					/>
-				</label>
-				<button type="submit">Submit Review</button>
-				{error && <p className="error">{error}</p>}
-			</form>
-		);
-	}
+	let reviewForm = token ? (
+		<form onSubmit={handleSubmit} className="review-form">
+			<label>
+				Rating (out of 10)
+				<input
+					name="rating"
+					type="number"
+					min="1"
+					max="10"
+					onChange={(e) => setRating(e.target.value)}
+					value={rating || ""}
+					required
+				/>
+			</label>
+			<label>
+				Comment
+				<input
+					name="comment"
+					onChange={(e) => setComment(e.target.value)}
+					value={comment || ""}
+					required
+				/>
+			</label>
+			<button type="submit">Submit Review</button>
+			{error && <p className="error">{error}</p>}
+		</form>
+	) : (
+		<p>Log in to write a review.</p>
+	);
 
 	return (
 		<div className="candy-list">
