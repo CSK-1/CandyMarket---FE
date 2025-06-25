@@ -37,6 +37,7 @@ const Reviews = ({ productId }) => {
           {reviews.map((review) => (
             <li key={review.id}>
               <strong>{review.username || "Anonymous"}</strong>: {review.comment}
+              <span><strong>  Rating:</strong> {review.rating}/10</span>
             </li>
           ))}
         </ul>
