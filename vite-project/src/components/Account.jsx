@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import candyImage from "../assets/CandyImage.png";
 
 function Account() {
   const [error, setError] = useState("");
@@ -42,14 +43,15 @@ function Account() {
  console.log(order)
   return (
     <>
-      <h1>Accounts</h1>
-      <div className="order">
+      <h1>Orders</h1>
+      <div className="candy-list">
 
         {
-          <div key={order.id}>
-            <h2>{order.id}</h2>
-            <h2>{order.note}</h2>
-            <h2>{order.date}</h2>
+          <div key={order.id} className="order-card">
+            <h2><strong>Order ID: </strong>{order.id}</h2>
+            <img src={candyImage} alt="Candy image" className="candy-icon" />
+            <h2><strong>Note: </strong>{order.note}</h2>
+            <h2><strong>Date: </strong>{order.date}</h2>
           </div>
         }
       </div>
