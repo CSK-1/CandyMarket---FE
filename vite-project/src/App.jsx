@@ -12,10 +12,20 @@ function App() {
 	const [token, setToken] = useState(localStorage.getItem("token") || null);
 
 	let navBar = token ? (
-		<Link to="/account">Account</Link>
-	) : (
-		<Link to="/login">Log In</Link>
-	);
+  <>
+    <Link to="/account">Account</Link>
+    <button
+      onClick={() => {
+        localStorage.removeItem("token");
+        setToken(null);
+      }}
+    >
+      Logout
+    </button>
+  </>
+) : (
+  <Link to="/login">Log In</Link>
+);
 
 	return (
 		<>
