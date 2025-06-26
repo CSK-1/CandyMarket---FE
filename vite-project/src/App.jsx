@@ -20,7 +20,7 @@ function App() {
         setToken(null);
       }}
     >
-      Logout
+      Log Out
     </button>
   </>
 ) : (
