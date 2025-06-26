@@ -14,13 +14,13 @@ function App() {
 	let navBar = token ? (
   <>
     <Link to="/account">Account</Link>
-    <button
+    <button className="nav-button"
       onClick={() => {
         localStorage.removeItem("token");
         setToken(null);
       }}
     >
-      Logout
+      Log Out
     </button>
   </>
 ) : (

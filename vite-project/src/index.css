@@ -84,6 +84,24 @@ a {
 	transition: background-color 0.3s;
 }
 
+.nav-button {
+	display: inline-block;
+	margin-top: 1rem;
+	color: white;
+	background-color: var(--coral);
+	border: var(--coral);
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: background-color 0.3s;
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+.nav-button:hover {
+	background-color: var(--pink);
+	color: var(--text-dark);
+}
+
 a:hover {
 	background-color: var(--pink);
 	color: var(--text-dark);
